@@ -115,6 +115,41 @@
       background: #333;
       color: #fff;
     }
+    /* Seção de Contato - Cards Interativos */
+    .contact-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .contact-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .contact-icon {
+      margin-bottom: 0.5rem;
+    }
+    .contact-info h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+    .contact-info a {
+      color: #0077B5;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    .contact-info a:hover {
+      color: #005582;
+    }
     /* Rodapé */
     footer {
       background: #333;
@@ -238,15 +273,53 @@
     <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Altair-Mateus&layout=compact&theme=dark" alt="Top Languages">
   </section>
 
-  <!-- Seção de contato atualizada -->
+  <!-- Seção de contato com design interativo -->
   <section id="contato">
     <h2 class="section-title">Contato</h2>
-    <p>Entre em contato comigo:</p>
-    <ul>
-      <li>Email: <a href="mailto:taicoalencastro@gmail.com">taicoalencastro@gmail.com</a></li>
-      <li>Telefone: <a href="tel:+5551995688841">(51) 995688841</a></li>
-      <li>LinkedIn: <a href="https://www.linkedin.com/in/altair-mateus-t-alencastro/" target="_blank">Meu Perfil no LinkedIn</a></li>
-    </ul>
+    <div class="contact-cards">
+      <!-- Card de Email -->
+      <div class="contact-card" onclick="window.location.href='mailto:taicoalencastro@gmail.com'">
+        <div class="contact-icon">
+          <!-- Ícone de Email -->
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="5" width="18" height="14" rx="2" ry="2"></rect>
+            <polyline points="3 7 12 13 21 7"></polyline>
+          </svg>
+        </div>
+        <div class="contact-info">
+          <h3>Email</h3>
+          <a href="mailto:taicoalencastro@gmail.com">taicoalencastro@gmail.com</a>
+        </div>
+      </div>
+      <!-- Card de Telefone -->
+      <div class="contact-card" onclick="window.location.href='tel:+5551995688841'">
+        <div class="contact-icon">
+          <!-- Ícone de Telefone -->
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72 12.05 12.05 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11l-1.27 1.27a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.05 12.05 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+        </div>
+        <div class="contact-info">
+          <h3>Telefone</h3>
+          <a href="tel:+5551995688841">(51) 995688841</a>
+        </div>
+      </div>
+      <!-- Card de LinkedIn -->
+      <div class="contact-card" onclick="window.open('https://www.linkedin.com/in/altair-mateus-t-alencastro/', '_blank')">
+        <div class="contact-icon">
+          <!-- Ícone do LinkedIn -->
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0077B5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </div>
+        <div class="contact-info">
+          <h3>LinkedIn</h3>
+          <a href="https://www.linkedin.com/in/altair-mateus-t-alencastro/" target="_blank">Meu Perfil no LinkedIn</a>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Rodapé -->
