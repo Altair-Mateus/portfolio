@@ -24,11 +24,16 @@
       text-decoration: none;
       color: inherit;
     }
-    /* Cabeçalho do site */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    /* Cabeçalho */
     header {
       background: #333;
       color: #fff;
-      padding: 2rem 0;
+      padding: 2rem 1rem;
       text-align: center;
     }
     header h1 {
@@ -38,28 +43,31 @@
     header p {
       font-size: 1.2rem;
     }
-    /* Barra de navegação fixa */
+    /* Barra de navegação fixa e responsiva */
     nav {
       background: #444;
       display: flex;
       justify-content: center;
+      align-items: center;
       padding: 1rem;
       position: sticky;
       top: 0;
       z-index: 100;
+      flex-wrap: wrap;
     }
     nav a {
       color: #fff;
-      margin: 0 1rem;
+      margin: 0.5rem 1rem;
       transition: color 0.3s;
+      font-weight: 500;
     }
     nav a:hover {
       color: #ffd700;
     }
-    /* Estilização das seções */
+    /* Seções */
     section {
-      padding: 2rem;
-      max-width: 1000px;
+      padding: 2rem 1rem;
+      max-width: 1200px;
       margin: auto;
     }
     .section-title {
@@ -67,41 +75,29 @@
       margin-bottom: 1.5rem;
       font-size: 2rem;
     }
-    /* Cards interativos para os projetos */
+    /* Grid responsivo para os projetos */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    /* Cards de projetos */
     .card {
       background: #fff;
       border-radius: 5px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      margin: 1rem;
-      overflow: hidden;
       transition: transform 0.3s, box-shadow 0.3s;
+      overflow: hidden;
     }
     .card:hover {
       transform: translateY(-5px);
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
-    .card img {
-      width: 100%;
-      display: block;
-    }
     .card-body {
       padding: 1rem;
       text-align: center;
     }
-    /* Grid para organizar os projetos */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1rem;
-    }
-    /* Ajuste para imagens de estatísticas */
-    .stats img {
-      width: 100%;
-      max-width: 100%;
-      display: block;
-      margin: 0 auto;
-    }
-    /* Botão de troca de tema (dark/light) */
+    /* Botão de troca de tema */
     .theme-toggle {
       position: fixed;
       top: 20px;
@@ -127,14 +123,34 @@
       padding: 1rem;
       margin-top: 2rem;
     }
+    /* Media Queries para Responsividade */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      .section-title {
+        font-size: 1.75rem;
+      }
+    }
+    @media (max-width: 480px) {
+      nav {
+        flex-direction: column;
+      }
+      nav a {
+        margin: 0.5rem 0;
+      }
+    }
   </style>
 </head>
 <body>
   <!-- Botão para alternar entre temas claro e escuro -->
   <button class="theme-toggle" id="themeToggle">Toggle Theme</button>
   
-  <!-- Barra de navegação para acesso rápido às seções -->
-  <nav>
+  <!-- Barra de navegação com atributo aria para acessibilidade -->
+  <nav aria-label="Menu de navegação">
     <a href="#inicio">Início</a>
     <a href="#sobre">Sobre</a>
     <a href="#projetos">Projetos</a>
@@ -147,11 +163,11 @@
     <p>
       ✨ Desenvolvedor de Software na 
       <a href="https://webmc.com.br/" target="_blank" style="color: #ffd700;">MC Sistemas</a> |
-      Impulsionado pela inovação e pelo desafio de transformar ideias em soluções de software revolucionárias
+      Impulsionado pela inovação e pelo desafio de transformar ideias em soluções revolucionárias
     </p>
   </header>
 
-  <!-- Seção "Sobre Mim" com informações profissionais e especialidades -->
+  <!-- Seção "Sobre Mim" -->
   <section id="sobre">
     <h2 class="section-title">Sobre Mim</h2>
     <p>
@@ -159,27 +175,26 @@
     </p>
     <h3>🏢 Atuação Profissional</h3>
     <ul>
-      <li>💼 Atuo como <strong>Desenvolvedor de Software</strong> na <a href="https://webmc.com.br/" target="_blank">MC Sistemas</a>, contribuindo com soluções robustas e inovadoras para diferentes setores.</li>
-      <li>🎓 Sou Bacharel em <strong>Engenharia de Software</strong> pela <a href="https://www.unigran.br/ead" target="_blank">UNIGRAN</a>, o que fundamenta minha prática e visão técnica.</li>
+      <li>💼 Desenvolvedor de Software na <a href="https://webmc.com.br/" target="_blank">MC Sistemas</a>.</li>
+      <li>🎓 Bacharel em Engenharia de Software pela <a href="https://www.unigran.br/ead" target="_blank">UNIGRAN</a>.</li>
     </ul>
     <h3>📱 Especialidades</h3>
     <ul>
       <li>Desenvolvimento utilizando <strong>Golang</strong> e <strong>Delphi</strong>.</li>
       <li>Bancos de Dados <strong>SQL</strong>.</li>
       <li><strong>Docker</strong> e <strong>Containers</strong>.</li>
-      <li>Criação de sistemas escaláveis e inovadores, aplicando conceitos avançados de engenharia de software.</li>
-      <li>Práticas ágeis e boas práticas de desenvolvimento para garantir alta performance e qualidade em meus projetos.</li>
+      <li>Criação de sistemas escaláveis e inovadores com práticas ágeis.</li>
     </ul>
     <h3>🚀 O que me motiva:</h3>
     <p>
-      Criar soluções tecnológicas que transformem processos e impactem positivamente a vida das pessoas. Compartilhar conhecimento e aprender continuamente, contribuindo para o crescimento da comunidade de desenvolvedores.
+      Criar soluções tecnológicas que transformem processos e impactem positivamente a vida das pessoas, compartilhando conhecimento e aprendendo continuamente.
     </p>
   </section>
 
   <!-- Seção com as estatísticas do GitHub -->
   <section class="stats">
     <h2 class="section-title">Estatísticas no GitHub</h2>
-    <!-- Imagem externa que exibe as estatísticas do GitHub -->
+    <!-- Imagem externa para estatísticas -->
     <img src="https://github-readme-stats.vercel.app/api?username=Altair-Mateus&show_icons=true&theme=dark" alt="GitHub Stats">
   </section>
 
@@ -187,7 +202,7 @@
   <section id="projetos">
     <h2 class="section-title">Projetos em Destaque</h2>
     <div class="projects-grid">
-      <!-- Card do Projeto 1 -->
+      <!-- Projeto 1 -->
       <div class="card">
         <a href="https://github.com/Altair-Mateus/vendas-ingresso" target="_blank">
           <img src="https://github-readme-stats.vercel.app/api/pin/?username=Altair-Mateus&repo=vendas-ingresso&theme=dark" alt="Projeto Vendas Ingresso">
@@ -196,7 +211,7 @@
           <p>Projeto Vendas Ingresso</p>
         </div>
       </div>
-      <!-- Card do Projeto 2 -->
+      <!-- Projeto 2 -->
       <div class="card">
         <a href="https://github.com/Altair-Mateus/Sistema_Financeiro" target="_blank">
           <img src="https://github-readme-stats.vercel.app/api/pin/?username=Altair-Mateus&repo=Sistema_Financeiro&theme=dark" alt="Sistema Financeiro">
@@ -205,7 +220,7 @@
           <p>Sistema Financeiro</p>
         </div>
       </div>
-      <!-- Card do Projeto 3 -->
+      <!-- Projeto 3 -->
       <div class="card">
         <a href="https://github.com/Altair-Mateus/DaoRTTI4D" target="_blank">
           <img src="https://github-readme-stats.vercel.app/api/pin/?username=Altair-Mateus&repo=DaoRTTI4D&theme=dark" alt="DaoRTTI4D">
@@ -217,7 +232,7 @@
     </div>
   </section>
 
-  <!-- Seção com as linguagens mais usadas -->
+  <!-- Seção de linguagens mais usadas -->
   <section>
     <h2 class="section-title">Linguagens Mais Usadas</h2>
     <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Altair-Mateus&layout=compact&theme=dark" alt="Top Languages">
@@ -226,7 +241,7 @@
   <!-- Seção de contato -->
   <section id="contato">
     <h2 class="section-title">Contato</h2>
-    <p>Entre em contato comigo através do <a href="mailto:seuemail@exemplo.com">seuemail@exemplo.com</a></p>
+    <p>Entre em contato comigo pelo <a href="mailto:seuemail@exemplo.com">seuemail@exemplo.com</a></p>
   </section>
 
   <!-- Rodapé -->
@@ -236,18 +251,18 @@
 
   <!-- JavaScript para funcionalidades interativas -->
   <script>
-    // Função para alternar entre tema claro e escuro
-    // O botão "Toggle Theme" altera as cores do body, header e footer.
+    // Alternância de tema claro e escuro
     const themeToggle = document.getElementById('themeToggle');
     themeToggle.addEventListener('click', () => {
-      if(document.body.style.background === 'rgb(244, 244, 244)' || document.body.style.background === '') {
+      // Verifica a cor atual do fundo e alterna para o outro tema
+      if(document.body.style.background === 'rgb(244, 244, 244)' || document.body.style.background === ''){
         // Alterna para tema escuro
         document.body.style.background = '#222';
         document.body.style.color = '#ddd';
         document.querySelector('header').style.background = '#111';
         document.querySelector('footer').style.background = '#111';
       } else {
-        // Retorna para o tema claro
+        // Retorna para tema claro
         document.body.style.background = '#f4f4f4';
         document.body.style.color = '#333';
         document.querySelector('header').style.background = '#333';
@@ -255,8 +270,7 @@
       }
     });
 
-    // Implementa o scroll suave para os links da navegação
-    // Previne o comportamento padrão do link e realiza uma rolagem suave para a seção desejada
+    // Scroll suave para os links da navegação
     document.querySelectorAll('nav a').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
